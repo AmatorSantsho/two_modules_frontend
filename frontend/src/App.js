@@ -26,7 +26,7 @@ class App extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         const {name, password} = this.state;
-        axios.post('http://localhost:8090/login', {name, password})
+        axios.post('twomodulesbackend/login', {name, password})
             .then(response => {
                 this.setState({data: response.data});
 

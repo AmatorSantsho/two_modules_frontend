@@ -12,7 +12,7 @@ class Edit extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8090/contacts/' + this.props.match.params.id)
+        axios.get('twomodulesbackend/contacts/' + this.props.match.params.id)
             .then(res => {
                 this.setState({contact: res.data});
             });
@@ -29,13 +29,13 @@ class Edit extends Component {
 
         const {name, address, city, phone, email, password} = this.state.contact;
 
-        axios.put('http://localhost:8090/contacts/' + this.props.match.params.id, {name, address, city, phone, email, password})
+        axios.put('twomodulesbackend/contacts/' + this.props.match.params.id, {name, address, city, phone, email, password})
             .then((result) => {
                 this.props.history.push("/show/" + this.props.match.params.id)
             });
     }
 handleDelete=()=>{
-        axios.delete('http://localhost:8090/contacts/' + this.state.contact.id)
+        axios.delete('twomodulesbackend/contacts/' + this.state.contact.id)
             .then(this.props.history.push("/"));
 }
 
