@@ -27,7 +27,7 @@ class Create extends Component {
         e.preventDefault();
         const {name, address, city, phone, email, password} = this.state;
 
-        axios.post('twomodulesbackend/contacts', {name, address, city, phone, email, password})
+        axios.post('https://twomodulesbackend.herokuapp.com/contacts', {name, address, city, phone, email, password})
             .then((result) => {
                 this.props.history.push("/")
             });
