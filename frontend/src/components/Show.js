@@ -13,7 +13,7 @@ class Show extends Component {
     }
 
     componentDidMount() {
-        axios.get('twomodulesbackend/contacts/' + this.props.match.params.id)
+        axios.get('https://twomodulesbackend.herokuapp.com/contacts/' + this.props.match.params.id)
             .then(res => {
                 this.setState({contact: res.data});
             });

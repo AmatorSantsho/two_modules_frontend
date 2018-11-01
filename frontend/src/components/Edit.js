@@ -12,7 +12,7 @@ class Edit extends Component {
     }
 
     componentDidMount() {
-        axios.get('twomodulesbackend/contacts/' + this.props.match.params.id)
+        axios.get('https://twomodulesbackend.herokuapp.com/contacts/' + this.props.match.params.id)
             .then(res => {
                 this.setState({contact: res.data});
             });
@@ -29,13 +29,13 @@ class Edit extends Component {
 
         const {name, address, city, phone, email, password} = this.state.contact;
 
-        axios.put('twomodulesbackend/contacts/' + this.props.match.params.id, {name, address, city, phone, email, password})
+        axios.put('https://twomodulesbackend.herokuapp.com/contacts/' + this.props.match.params.id, {name, address, city, phone, email, password})
             .then((result) => {
                 this.props.history.push("/show/" + this.props.match.params.id)
             });
     }
 handleDelete=()=>{
-        axios.delete('twomodulesbackend/contacts/' + this.state.contact.id)
+        axios.delete('https://twomodulesbackend.herokuapp.com/contacts/' + this.state.contact.id)
             .then(this.props.history.push("/"));
 }
 

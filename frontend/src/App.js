@@ -26,7 +26,7 @@ class App extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         const {name, password} = this.state;
-        axios.post('twomodulesbackend/login', {name, password})
+        axios.post('https://twomodulesbackend.herokuapp.com/login', {name, password})
             .then(response => {
                 this.setState({data: response.data});
 
