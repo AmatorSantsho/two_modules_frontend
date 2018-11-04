@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 //import ReactDOM from 'react-dom';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import env from 'process-env';
+
 
 class Create extends Component {
     constructor() {
@@ -27,7 +27,7 @@ class Create extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         const {name, address, city, phone, email, password} = this.state;
-        const  backendUrl= env.get('BACKEND_URL') + '/contacts';
+        const  backendUrl= `${process.env.MY_URL}/contacts`;
         axios.post(backendUrl, {name, address, city, phone, email, password})
             .then((result) => {
                 this.props.history.push("/")
