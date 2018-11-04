@@ -16,7 +16,7 @@ class App extends Component {
         }
     }
 const
-    urle= process.env.NODE_ENV;
+    urle= process.env.REACT_APP_URL;
 
     onChangeName = (event) => {
         this.setState({name: event.target.value})
