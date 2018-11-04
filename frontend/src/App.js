@@ -15,6 +15,8 @@ class App extends Component {
             data: ''
         }
     }
+const
+    urle= process.env.NODE_ENV;
 
     onChangeName = (event) => {
         this.setState({name: event.target.value})
@@ -77,7 +79,8 @@ class App extends Component {
                         </div>
                         <br/>
                         <div>
-                            <h5> Current envirenemt var value is ${process.env.MY_URL}</h5>
+                            <h5> Current envirenemt var value is </h5>
+                            <h5>${this.urle}</h5>
                         </div>
                     </div>
                 </div>
