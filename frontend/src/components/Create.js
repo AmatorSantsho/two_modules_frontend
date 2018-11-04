@@ -27,8 +27,7 @@ class Create extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         const {name, address, city, phone, email, password} = this.state;
-        const  backendUrl= `${process.env.MY_URL}/contacts`;
-        axios.post(backendUrl, {name, address, city, phone, email, password})
+        axios.post('https://twomodulesbackend.herokuapp.com', {name, address, city, phone, email, password})
             .then((result) => {
                 this.props.history.push("/")
             });

@@ -75,6 +75,10 @@ class App extends Component {
                             <h5>Not registered yet? <button onClick={this.register}>Register</button></h5>
 
                         </div>
+                        <br/>
+                        <div>
+                            <h5> Current envirenemt var value is ${process.env.MY_URL}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
