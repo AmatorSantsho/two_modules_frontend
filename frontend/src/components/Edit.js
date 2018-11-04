@@ -10,9 +10,11 @@ class Edit extends Component {
             contact: {}
         };
     }
-
+    const
+    backendUrl= `${process.env.REACT_APP_URL}/contacts`;
     componentDidMount() {
-        axios.get('https://twomodulesbackend.herokuapp.com/contacts/' + this.props.match.params.id)
+
+        axios.get(this.backendUrl + this.props.match.params.id)
             .then(res => {
                 this.setState({contact: res.data});
             });
@@ -29,13 +31,13 @@ class Edit extends Component {
 
         const {name, address, city, phone, email, password} = this.state.contact;
 
-        axios.put('https://twomodulesbackend.herokuapp.com/contacts/' + this.props.match.params.id, {name, address, city, phone, email, password})
+        axios.put(this.backendUrl + this.props.match.params.id, {name, address, city, phone, email, password})
             .then((result) => {
                 this.props.history.push("/show/" + this.props.match.params.id)
             });
     }
 handleDelete=()=>{
-        axios.delete('https://twomodulesbackend.herokuapp.com/contacts/' + this.state.contact.id)
+        axios.delete(this.backendUrl + this.state.contact.id)
             .then(this.props.history.push("/"));
 }
 

@@ -11,9 +11,10 @@ class Show extends Component {
             contact: {}
         };
     }
-
+    const
+    backendUrl= `${process.env.REACT_APP_URL}/contacts`;
     componentDidMount() {
-        axios.get('https://twomodulesbackend.herokuapp.com/contacts/' + this.props.match.params.id)
+        axios.get(this.backendUrl + this.props.match.params.id)
             .then(res => {
                 this.setState({contact: res.data});
             });

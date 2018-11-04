@@ -15,8 +15,6 @@ class App extends Component {
             data: ''
         }
     }
-const
-    urle= process.env.REACT_APP_URL;
 
     onChangeName = (event) => {
         this.setState({name: event.target.value})
@@ -28,7 +26,9 @@ const
     onSubmit = (e) => {
         e.preventDefault();
         const {name, password} = this.state;
-        axios.post('https://twomodulesbackend.herokuapp.com/login', {name, password})
+        const
+            backendUrl= `${process.env.REACT_APP_URL}/login`;
+        axios.post(backendUrl, {name, password})
             .then(response => {
                 this.setState({data: response.data});
 
@@ -77,11 +77,7 @@ const
                             <h5>Not registered yet? <button onClick={this.register}>Register</button></h5>
 
                         </div>
-                        <br/>
-                        <div>
-                            <h5> Current envirenemt var value is </h5>
-                            <h5>${this.urle}</h5>
-                        </div>
+
                     </div>
                 </div>
             </div>
