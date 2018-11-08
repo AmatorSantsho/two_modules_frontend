@@ -12,7 +12,7 @@ class Show extends Component {
         };
     }
     const
-    backendUrl= `${process.env.REACT_APP_URL}/contacts`;
+    backendUrl= `${process.env.REACT_APP_URL}/contacts/`;
     componentDidMount() {
         axios.get(this.backendUrl + this.props.match.params.id)
             .then(res => {
